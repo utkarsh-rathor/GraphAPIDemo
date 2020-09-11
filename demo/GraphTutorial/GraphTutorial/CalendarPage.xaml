@@ -9,9 +9,11 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
+            <DatePicker DateSelected="DatePicker_DateSelected"/>
+
             <ListView x:Name="CalendarList"
                       HasUnevenRows="true"
-                      Margin="10,10,10,10">
+                      Margin="10,10,10,10" ItemSelected="CalendarList_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -19,8 +21,6 @@
                                 <Label Text="{Binding Path=Subject}"
                                        FontAttributes="Bold"
                                        FontSize="Medium" />
-                                <Label Text="{Binding Path=Organizer.EmailAddress.Name}"
-                                       FontSize="Small" />
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="{Binding Path=Start, Converter={StaticResource DateConverter}}"
                                        FontSize="Micro" />
@@ -34,6 +34,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button Text="Reset" Clicked="Button_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
